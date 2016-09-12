@@ -273,7 +273,7 @@ The result expected is :
 ----
 
 
-Currency Converter Tests
+Currency converter test
 ========================
 
 - Use the template behind the path `/test/currency/test_client.py`
