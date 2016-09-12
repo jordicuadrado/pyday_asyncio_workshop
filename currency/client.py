@@ -1,4 +1,4 @@
-import aiohttp
+from aiohttp import ClientSession
 
 
 class CurrencyClient:
@@ -12,7 +12,7 @@ class CurrencyClient:
         It will use the service behind the `CurrencyClient.ENDPOINT` to get
         the current exchange and do the proper maths.
         """
-        raise NotImplemented
+        raise NotImplementedError
 
 
 if __name__ == "__main__":

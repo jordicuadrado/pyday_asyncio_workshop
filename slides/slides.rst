@@ -222,14 +222,63 @@ Currency converter HTTP client.
 TDD in an asynchronous world
 ============================
 
-TODO
+As you do usually but with some considerations
+
+.. code-block:: python 
+
+    def test_foo():
+        async def _():
+            await foo() == 10
+        asyncio.get_event_loop().runt_until_complete(_())
+
 
 ----
+
+TDD in an asynchronous world
+============================
+
+But we can get some help from `pytest.asyncio`
+
+.. code-block:: python 
+
+    @pytest.mark.asyncio
+    def test_foo():
+        await foo() == 10
+
+----
+
+
+Currency converter test
+=======================
+
+What are we going to do ? Put a fence arround the `convert` function
+to test it and get a deterministic behaviour.
+
+How will we do that? Creating an asyncronous fixture and patching
+the `get` method to return this, u others, fixture.
+
+----
+
+Currency converter test
+=======================
+
+The result expected is :
+
+.. code-block:: python 
+
+    $ pytest -q  tests/currency/
+    .
+    1 passed in 0.02 seconds
+
+----
+
 
 Currency Converter Tests
 ========================
 
-TODO
+- Use the template behind the path `/test/currency/test_client.py`
+- Just fill the code gaps, have fun!
+
 
 ----
 
