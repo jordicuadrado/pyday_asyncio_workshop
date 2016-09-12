@@ -183,23 +183,41 @@ Asyncio basics: Recaping
 Time for coding
 ===============
 
+Prepare your enviornment
+
 .. code-block:: bash
 
-    $ git clone 
-    $ cd 
+    $ git clone\
+    https://github.com/Skyscanner/pyday_asyncio_workshop.git
+    $ cd pyday_asyncio_workshop.git
+    $ mkvirtualenv -p python3
+    $ pip install requirements.txt
 
+----
 
+Currency converter HTTP client.
+===============================
+
+Implement a HTTP client to convert an amount of money from EUR to another currency
+
+What we expect ?
+
+.. code-block:: bash
+
+    $ python currency/client.py USD 100
+    122 USD
 
 ----
 
+Currency converter HTTP client.
+===============================
 
-
-Ex. Currency converter HTTP client.
-===================================
-
-TODO
+- Use the template behind the path `/currency/client.py`
+- Use the following API REST endpoint : http://api.fixer.io/latest
+- Just fill the code gaps, have fun!
 
 ----
+
 
 TDD in an asynchronous world
 ============================
