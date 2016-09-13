@@ -3,10 +3,11 @@ Content
 
 * About me
 * Asyncio basics
-* Ex. Currency converter HTTP client.
+* Currency converter HTTP client.
 * TDD in an asynchronous world
-* Ex. Coverage of your Currency converter
-* Publishing the currency converter as a web resource
+* Coverage of your Currency converter
+* Currency converter as a web resource
+* Part 2
 
 ----
 
@@ -200,7 +201,7 @@ Currency converter HTTP client.
 
 Implement a HTTP client to convert an amount of money from EUR to another currency
 
-What we expect ?
+What do we expect ?
 
 .. code-block:: bash
 
@@ -214,10 +215,15 @@ Currency converter HTTP client.
 
 - Use the template behind the path `/currency/client.py`
 - Use the following API REST endpoint : http://api.fixer.io/latest
-- Just fill the code gaps, have fun!
 
 ----
 
+Currency converter HTTP client.
+===============================
+
+You have **10 minutes**. Just fill the code gaps, have fun!
+
+----
 
 TDD in an asynchronous world
 ============================
@@ -228,7 +234,7 @@ As you do usually but with some considerations
 
     def test_foo():
         async def _():
-            await foo() == 10
+            assert await foo() == 10
         asyncio.get_event_loop().runt_until_complete(_())
 
 
@@ -243,7 +249,7 @@ But we can get some help from `pytest.asyncio`
 
     @pytest.mark.asyncio
     def test_foo():
-        await foo() == 10
+        assert await foo() == 10
 
 ----
 
@@ -255,7 +261,7 @@ What are we going to do ? Put a fence arround the `convert` function
 to test it and get a deterministic behaviour.
 
 How will we do that? Creating an asyncronous fixture and patching
-the `get` method to return this, u others, fixture.
+the `get` method to return this fixture.
 
 ----
 
@@ -264,7 +270,7 @@ Currency converter test
 
 The result expected is :
 
-.. code-block:: python 
+.. code-block:: bash
 
     $ pytest -q  tests/currency/
     .
@@ -277,14 +283,72 @@ Currency converter test
 ========================
 
 - Use the template behind the path `/test/currency/test_client.py`
-- Just fill the code gaps, have fun!
 
 
 ----
 
-Publishing the currency converter as a web resource
-===================================================
+Currency converter HTTP client.
+===============================
 
-TODO
+You have **10 minutes**. Just fill the code gaps, have fun!
+
+----
+
+
+Aiohttp the asynchronous webserver
+==================================
+
+- Build upon asyncio
+- Meets the basic requirements for a HTTP server : sessions, cookies, etc.
+- Comes with support for Websockets.
+- More info here : `http://aiohttp.readthedocs.io <http://aiohttp.readthedocs.io/en/stable/>`_
+
+----
+
+Aiohttp the asynchronous webserver
+==================================
+
+The minimal python code needed:
+
+.. code-block:: python
+
+    from aiohttp import web
+
+    async def hello(request):
+        return web.Response(body=b"Hello, world")
+
+    app = web.Application()
+    app.router.add_route('GET', '/', hello)
+    web.run_app(app)
+
+
+----
+
+Currency converter as a web resource
+====================================
+
+Implement a HTTP server that exposes the currency converter as an endpiont.
+
+What do we expect ?
+
+.. code-block:: bash
+
+    $ python webserver.py &
+    $ curl http://localhost:8080/convert/GBP/100
+    GBP 88.4
+
+----
+
+Currency converter as a web resource
+====================================
+
+- Use the template behind the path `webserver.py`
+
+----
+
+Currency converter as a web resource
+====================================
+
+You have **10 minutes**. Just fill the code gaps, have fun!
 
 ----
