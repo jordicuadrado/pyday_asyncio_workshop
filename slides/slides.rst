@@ -17,15 +17,15 @@ About me
 * Pau Freixes `@pfreixes <https://twitter.com/pfreixes>`_, `git <https://github.com/pfreixes>`_
 * Senior Software Enginner at SkyScanner
 * Member of the Hotels Backend Squad
-* I always go down the rabbit hole
+* One recomendation: read the others code, learn from the maters
 
 ----
 
 Asyncio basics: basic theory
 ============================
 
-- Get the best practices from other frameworks `Twisted`, `Tornado`, etc.
-- Concurrence via coroutines, these can be paused and rescheduled  
+- Implements the best practices from other frameworks `Twisted`, `Tornado`, etc.
+- Concurrence via coroutines, can be paused and rescheduled  
 - First implementation via iterators, since 3.5 as an internal and specific implementation.
 - Designed to build other frameworks upon it. `Tornado with Asyncio <http://www.tornadoweb.org/en/stable/asyncio.html>`_
 
@@ -34,17 +34,7 @@ Asyncio basics: basic theory
 Asyncio basics: Coroutine
 =========================
 
-- Bound to a Python function: With the `async def` statement or the `@asyncio.coroutine` decorator 
-- Calling a coroutine does not start the code automatically: `await` and `yield from` do that implicitly.
-- Once paused it is rescheduled by the loop because of a I/O event, by time, etc.
-- Magic methods cant be defined as coroutines : `__init__`, `__cmp__`, etc
-
-----
-
-Asyncio basics: Coroutine
-=========================
-
-The basic example, running a coroutine
+- A special Python function: with the `async def` statement or the `@asyncio.coroutine` decorator 
 
 .. code-block:: python 
 
@@ -61,7 +51,17 @@ The basic example, running a coroutine
 Asyncio basics: Coroutine
 =========================
 
-Calling a coroutine and waiting for the result, becoming a croutine.
+- Calling a coroutine does not start the code automatically: `await` and `yield from` do that implicitly.
+- Once paused it is rescheduled by the loop because of a I/O event, by time, etc.
+- Magic methods **can not** be defined as coroutines : `__init__`, `__cmp__`, etc
+
+
+----
+
+Asyncio basics: Coroutine
+=========================
+
+If **foo** calls a coroutine and waits for the result, it becomes a croutine.
 
 .. code-block:: python 
 
@@ -96,10 +96,9 @@ Intermediate object to set results in the past and gather them into the Future
 Asyncio basics: Future
 ======================
 
-*Damm it*, this is not asynchronous. What is going on?.
+**Damm it**, this is not asynchronous. What is going on?.
 
 *Future* should be treated as a **synchronization object, used by a consumer and producer**.
-It almost meets the same requirements than the threading flavor called `concurrent.futures.Future`
 
 As an example have a look to the code to `set the results <https://github.com/python/cpython/blob/master/Lib/asyncio/futures.py#L284>`_.
 
@@ -123,13 +122,19 @@ The `await` expression is compatible with futures.
 
 ----
 
+Asyncio basics: Future
+======================
+
+We will come later, no worries :/
+
+----
+
 Asyncio basics: Task
 ====================
 
 - Unit of a concurrent asynchronous work.
-- As an example each http request is handled as a task by `aiohttp`.
-- Use `ensure_future` giving a coroutine as a param to start a new task.
-- Schedule the execution of a coroutine: wrap it in a `future <https://github.com/python/cpython/blob/master/Lib/asyncio/tasks.py#L243>`_. A task is a subclass of Future.
+- As an example each HTTP request is handled as a task by `aiohttp`.
+- Calling `ensure_future` giving a coroutine as a param it starts a new task.
 
 ----
 
@@ -151,9 +156,10 @@ Running many tasks concurrently
 ----
 
 Asyncio basics: Task
-======================
+====================
 
-Using the `Future` interface to schedule a callback.
+A **Task** is a subclass of `Future <https://github.com/python/cpython/blob/master/Lib/asyncio/tasks.py#L243>`_. Why not
+use the callback system ?
 
 .. code-block:: python 
 
@@ -170,11 +176,10 @@ Using the `Future` interface to schedule a callback.
 
 ----
 
-
 Asyncio basics: Recaping
 ========================
 
-- **Coroutines** as a way to get concurrence
+- **Coroutines** as a way to get concurrence.
 - **Futures** as a way to pick up results in the future once are available.
 - **Tasks** unit of concurrency.
 
@@ -192,7 +197,7 @@ Prepare your enviornment
     https://github.com/Skyscanner/pyday_asyncio_workshop.git
     $ cd pyday_asyncio_workshop.git
     $ mkvirtualenv -p python3
-    $ pip install requirements.txt
+    $ pip install -r requirements.txt
 
 ----
 
@@ -214,6 +219,7 @@ Currency converter HTTP client.
 ===============================
 
 - Use the template behind the path `/currency/client.py`
+- Use the `ClientSession`, more info `here <http://aiohttp.readthedocs.io/en/stable/client.html>`_
 - Use the following API REST endpoint : http://api.fixer.io/latest
 
 ----
@@ -343,6 +349,7 @@ Currency converter as a web resource
 ====================================
 
 - Use the template behind the path `webserver.py`
+- More info `here <http://aiohttp.readthedocs.io/en/stable/web.html>`_
 
 ----
 
