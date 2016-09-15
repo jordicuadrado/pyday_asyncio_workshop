@@ -12,7 +12,20 @@ class CurrencyClient:
         It will use the service behind the `CurrencyClient.ENDPOINT` to get
         the current exchange and do the proper maths.
         """
-        raise NotImplementedError
+        session = ClientSession()
+        response = await session.get(self.ENDPOINT)
+        data = await response.json()
+        session.close()
+
+        assert 'rates' in data
+
+        try:
+            exchange = data['rates'][currency]
+        except KeyError:
+            print("Currency `{}` not found".format(currency))
+            raise
+
+        return amount * exchange
 
 
 if __name__ == "__main__":
