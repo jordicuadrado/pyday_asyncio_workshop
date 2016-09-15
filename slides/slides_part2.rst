@@ -107,4 +107,5 @@ Prepare your enviornment
 .. code-block:: bash
 
     $ git checkout part3
+    $ pip install -r requirements.txt
 ----
