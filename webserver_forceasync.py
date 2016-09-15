@@ -1,10 +1,15 @@
 import binascii
+import asyncio
 
 from aiohttp import web
 from aiohttp.web_exceptions import HTTPNotFound
+from concurrent.futures import ThreadPoolExecutor
+from functools import partial
 
 from currency_sync.client import CurrencyClient
 
+
+pool = ThreadPoolExecutor(max_workers=32)
 
 async def convert(request):
     try:
@@ -13,7 +18,11 @@ async def convert(request):
     except KeyError:
         return HTTPNotFound()
 
-    raise NotImplementedError
+    client = CurrencyClient()
+    f = partial(client.convert, *(currency, int(amount)))
+    amount_converted = await asyncio.get_event_loop().run_in_executor(pool, f)
+
+    return web.Response(body=binascii.a2b_qp("{} {}".format(currency, str(amount_converted))))
 
 
 def build_app(*args, **kwargs):
