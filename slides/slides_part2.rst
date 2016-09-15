@@ -110,3 +110,96 @@ Prepare your enviornment
     $ git checkout part3
     $ pip install -r requirements.txt
 ----
+
+The Flask implementation
+========================
+
+A pure synhcronous code
+
+.. code-block:: python 
+
+    @app.route("/convert/<currency>/<amount>")
+    def convert(currency, amount):
+        client = CurrencyClient()
+        amount_converted = client.convert(currency, int(amount))
+        return "{} {}".format(currency, str(amount_converted))
+
+    if __name__ == '__main__':
+        app.run(host='0.0.0.0', port=8080, threaded=True)
+
+----
+
+The Flask implementation
+========================
+
+Try it
+
+.. code-block:: bash
+
+    $ python webserver_flask.py &
+    $ curl http://localhost:8080/convert/GBP/100
+    GBP 88.4
+
+----
+
+Comparing the three implementations
+===================================
+
+- `webserver.py` pure asynchronous code
+- `webserver_forceasync.py` synchronous code wrapped
+- `webserver_flask.py` pure synchronous code 
+
+----
+
+Time for benchmarking
+=====================
+
+We will use `wrk <https://github.com/wg/wrk>`_, how to install ?
+
+- Mac : ``brew install wrk``
+- Ubuntu : ``apt-get install wrk``
+- Windows ... does not work
+
+----
+
+Example of test 
+===============
+
+.. code-block:: bash
+
+    $ python webserver_flask.py > /dev/null 2>&1 &
+    $ webserver_pid=$!
+    $ wrk -t100 -c100 http://localhost:8080/convert/GBP/100
+    .... some data omitted ....
+    Requests/sec:    205.81
+
+    $ kill $webserver_pid
+
+----
+
+Results 
+=======
+
+Lets do it for all of our implementations, share the results!
+
+If you wanna change the number of threads/connections feel free, but for
+the sake of clarity I would keep the same cardinality.
+
+----
+
+
+Comparing the three implementations 
+===================================
+
+.. image:: static/benchmark.png
+
+----
+
+The End 
+=======
+
+Questions ? Someting that you wanna share ?
+
+----
+
+
