@@ -97,3 +97,12 @@ Synchronous Currency converter made asynchronous
 You have **10 minutes**. Just fill the code gaps, have fun!
 
 ----
+
+Move on to the last part
+========================
+
+Prepare your enviornment
+
+.. code-block:: bash
+
+    $ git checkout part3
