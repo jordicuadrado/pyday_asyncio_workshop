@@ -17,7 +17,7 @@ About me
 * Pau Freixes `@pfreixes <https://twitter.com/pfreixes>`_, `git <https://github.com/pfreixes>`_
 * Senior Software Enginner at SkyScanner
 * Member of the Hotels Backend Squad
-* One recomendation: read the others code, learn from the maters
+* One recomendation: read the others code, learn from the masters
 
 ----
 
@@ -53,7 +53,8 @@ Asyncio basics: Coroutine
 
 - Calling a coroutine does not start the code automatically: `await` and `yield from` do that implicitly.
 - Once paused it is rescheduled by the loop because of a I/O event, by time, etc.
-- Magic methods **can not** be defined as coroutines : `__init__`, `__cmp__`, etc
+- Usual magic methods **can not** be defined as coroutines : `__init__`, `__cmp__`, etc
+- Adhoc magic mehods to implement `contexts <https://docs.python.org/3/reference/datamodel.html#asynchronous-context-managers>`_, `iterators <https://docs.python.org/3/reference/datamodel.html#asynchronous-iterators>`_.
 
 
 ----

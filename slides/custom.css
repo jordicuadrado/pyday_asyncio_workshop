@@ -1,1 +1,4 @@
 /* We can customize the theme CSS here */
+div.slide h1 {
+  font-size: 40pt;
+}
