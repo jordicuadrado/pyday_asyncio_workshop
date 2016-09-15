@@ -13,7 +13,9 @@ async def convert(request):
     except KeyError:
         return HTTPNotFound()
 
-    raise NotImplementedError
+    client = CurrencyClient()
+    amount_converted = await client.convert(currency, int(amount))
+    return web.Response(body=binascii.a2b_qp("{} {}".format(currency, str(amount_converted))))
 
 
 def build_app(*args, **kwargs):
