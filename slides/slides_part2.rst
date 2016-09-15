@@ -64,7 +64,8 @@ Prepare your enviornment
 
 .. code-block:: bash
 
-    $ git checkout origin/part2
+    $ git checkout part2
+    $ pip install -r requirements.txt
 
 Synchronous Currency converter made asynchronous
 ================================================
