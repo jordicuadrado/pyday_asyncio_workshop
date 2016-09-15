@@ -2,9 +2,9 @@ import pytest
 
 from unittest import mock
 from asynctest import MagicMock
-from aiohttp.client_reqrep import ClientResponse
 
 from currency.client import CurrencyClient
+from aiohttp.client_reqrep import ClientResponse
 
 @pytest.fixture()
 def build_aiohttp_client_response():
@@ -21,10 +21,11 @@ class TestCurrencyClient:
 
     @pytest.fixture
     def response_service(self):
-        raise NotImplementedError
+        return b'{"rates":{"USD":1.22}}'
 
     @pytest.mark.asyncio
     async def test_convert(self, build_aiohttp_client_response, response_service):
         with mock.patch('currency.client.ClientSession') as patched:
             patched.return_value.get.return_value = build_aiohttp_client_response(response_service)
-            raise NotImplementedError
+            client = CurrencyClient()
+            assert await client.convert('USD', 100) == 122
