@@ -1,3 +1,9 @@
+Asyncio from the theory to the practice
+=======================================
+
+----
+
+
 Content
 =======
 
@@ -17,7 +23,7 @@ About me
 * Pau Freixes `@pfreixes <https://twitter.com/pfreixes>`_, `git <https://github.com/pfreixes>`_
 * Senior Software Enginner at SkyScanner
 * Member of the Hotels Backend Squad
-* One recomendation: read the others code, learn from the masters
+* One recomendation: read others code, learn from the masters
 
 ----
 
@@ -27,7 +33,7 @@ Asyncio basics: basic theory
 - Implements the best practices from other frameworks `Twisted`, `Tornado`, etc.
 - Concurrence via coroutines, can be paused and rescheduled  
 - First implementation via iterators, since 3.5 as an internal and specific implementation.
-- Designed to build other frameworks upon it. `Tornado with Asyncio <http://www.tornadoweb.org/en/stable/asyncio.html>`_
+- Designed to built other frameworks upon it. `Tornado with Asyncio <http://www.tornadoweb.org/en/stable/asyncio.html>`_
 
 ----
 
@@ -62,7 +68,7 @@ Asyncio basics: Coroutine
 Asyncio basics: Coroutine
 =========================
 
-If **foo** calls a coroutine and waits for the result, it becomes a croutine.
+If **foo** calls a coroutine and waits for the result, it becomes a coroutine.
 
 .. code-block:: python 
 
@@ -126,7 +132,7 @@ The `await` expression is compatible with futures.
 Asyncio basics: Future
 ======================
 
-We will come later, no worries :/
+We will come back on it later, no worries :/
 
 ----
 
@@ -135,14 +141,14 @@ Asyncio basics: Task
 
 - Unit of a concurrent asynchronous work.
 - As an example each HTTP request is handled as a task by `aiohttp`.
-- Calling `ensure_future` giving a coroutine as a param it starts a new task.
+- Calling `ensure_future` giving a coroutine as a param starts a new task.
 
 ----
 
 Asyncio basics: Task
 ====================
 
-Running many tasks concurrently
+Running several tasks concurrently
 
 .. code-block:: python 
 
@@ -228,7 +234,7 @@ Currency converter HTTP client.
 Currency converter HTTP client.
 ===============================
 
-You have **10 minutes**. Just fill the code gaps, have fun!
+You have **10 minutes**. Just fill in the code gaps, have fun!
 
 ----
 
@@ -297,7 +303,7 @@ Currency converter test
 Currency converter HTTP client.
 ===============================
 
-You have **10 minutes**. Just fill the code gaps, have fun!
+You have **10 minutes**. Just fill in the code gaps, have fun!
 
 ----
 
@@ -357,6 +363,6 @@ Currency converter as a web resource
 Currency converter as a web resource
 ====================================
 
-You have **10 minutes**. Just fill the code gaps, have fun!
+You have **10 minutes**. Just fill in the code gaps, have fun!
 
 ----
