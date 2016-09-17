@@ -53,7 +53,7 @@ Futures and Threads
 ===================
 
 This is a way, the easy one, to wrap synchronous code and execute it
-asynchronoysly. Also a proper way to run CPU bound functions.
+asynchronously. Also a proper way to run CPU bound functions.
 
 ----
 
@@ -72,8 +72,8 @@ Prepare your enviornment
 Synchronous Currency converter made asynchronous
 ================================================
 
-Implement a HTTP server that exposes the currency converter synchronous 
-wraped to be executed asynchronoysly.
+Implement a HTTP server that exposes the synchronous currency
+converter wraped to be executed asynchronoysly
 
 What do we expect ?
 
@@ -96,12 +96,12 @@ Synchronous Currency converter made asynchronous
 Synchronous Currency converter made asynchronous
 ================================================
 
-You have **10 minutes**. Just fill the code gaps, have fun!
+You have **10 minutes**. Just fill in the code gaps, have fun!
 
 ----
 
-Move on to the last part
-========================
+Moving on to the last part
+==========================
 
 Prepare your enviornment
 
@@ -154,7 +154,7 @@ Comparing the three implementations
 Time for benchmarking
 =====================
 
-We will use `wrk <https://github.com/wg/wrk>`_, how to install ?
+We will use `wrk <https://github.com/wg/wrk>`_, how to install it?
 
 - Mac : ``brew install wrk``
 - Ubuntu : ``apt-get install wrk``
@@ -180,7 +180,7 @@ Example of test
 Results 
 =======
 
-Lets do it for all of our implementations, share the results!
+Lets do this for all of our implementations, share the results!
 
 If you wanna change the number of threads/connections feel free, but for
 the sake of clarity I would keep the same cardinality.
@@ -198,8 +198,6 @@ Comparing the three implementations
 The End 
 =======
 
-Questions ? Someting that you wanna share ?
+Questions ? Anything you would like to share?
 
 ----
-
-
