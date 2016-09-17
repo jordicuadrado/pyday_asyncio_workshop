@@ -53,7 +53,7 @@ Futures and Threads
 ===================
 
 This is a way, the easy one, to wrap synchronous code and execute it
-asynchronoysly. Also a proper way to run CPU bound functions.
+asynchronously. Also a proper way to run CPU bound functions.
 
 ----
 
@@ -71,8 +71,8 @@ Prepare your enviornment
 Synchronous Currency converter made asynchronous
 ================================================
 
-Implement a HTTP server that exposes the currency converter synchronous 
-wraped to be executed asynchronoysly.
+Implement a HTTP server that exposes the synchronous currency converter
+wraped to be executed asynchronoysl
 
 What do we expect ?
 
@@ -95,7 +95,7 @@ Synchronous Currency converter made asynchronous
 Synchronous Currency converter made asynchronous
 ================================================
 
-You have **10 minutes**. Just fill the code gaps, have fun!
+You have **10 minutes**. Just fill in the code gaps, have fun!
 
 ----
 
